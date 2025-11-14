@@ -1,3 +1,4 @@
 import Card from './Card.jsx';
 import Input from './Input.jsx';
-export { Card, Input };    
+import BasicCard from './MUICard.jsx';
+export { Card, Input, BasicCard };    
