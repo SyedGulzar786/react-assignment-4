@@ -1,2 +1,3 @@
 import Card from './Card.jsx';
-export { Card };    
+import Input from './Input.jsx';
+export { Card, Input };    
