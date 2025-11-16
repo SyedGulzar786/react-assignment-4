@@ -8,15 +8,19 @@ class Dashboarder extends Component {
         }
     }
     updateName = ()=>{
-        console.log(this.state)
+        console.log("updateName called",this.state)
     }
+ setName(){
+    console.log('setname called', this.state)
+ }
     render() {
         const {name} = this.state;
         return (
             <div>
                 <h1>hello old react</h1>
                 <h3>{name}</h3>
-                <button onClick={this.updateName.bind(this)}>update</button>
+                <button onClick={this.updateName}>update</button>
+                <button onClick={this.setName.bind(this)}>Set</button>
             </div>
         )
     }
