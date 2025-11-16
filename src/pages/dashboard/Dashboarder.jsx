@@ -2,6 +2,12 @@ import { Component } from 'react';
 // import { AppLayout } from '../../components'
 
 class Buttons extends Component {
+    constructor() {
+        super()
+        this.state = {
+            name: "Gulzar"
+        }
+    }
     arrowFunctioning = () => {
         console.log("arrowFunctioning called")
     }
@@ -10,9 +16,12 @@ class Buttons extends Component {
     }
     render() {
         console.log("props-->", this.props)
+        console.log("state-->", this.state)
         const { title, children } = this.props;
+        const {name} = this.state;
         return (
             <div>
+                <p className='fs-3'><b>state:</b> <span className='fs-5'>{name}</span></p>
                 <button onClick={this.arrowFunctioning}>{title}</button>
                 <button onClick={this.kerywordFunctioning}>{children}</button>
             </div>
