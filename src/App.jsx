@@ -16,7 +16,7 @@ function App() {
         <div>
      <label htmlFor="appParent" className='mt-2'>appParent</label> <Input onChange={(e)=>console.log(e.target.value)} />
 
-          <Home arr={arr} getData={getData}/>
+        <Home arr={arr} getData={getData}/>
         </div>
       </section>
     </div>

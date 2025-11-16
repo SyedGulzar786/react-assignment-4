@@ -1,9 +1,9 @@
 import { Card, Input, BasicCard, AppLayout } from '../../components';
-import React from 'react'
+import Dashboarder from '../dashboard/Dashboarder.jsx';
 
 const Home = ({ arr, getData }) => {
   return (
-    <AppLayout>
+    <Dashboarder>
       <div className='mt-3'>
         <label htmlFor="home">home<Input onChange={(e) => console.log(e.target.value)} /></label>
         <div className='d-flex gap-3 mt-2'>
@@ -14,7 +14,7 @@ const Home = ({ arr, getData }) => {
           {arr.map((v, i) => <BasicCard key={i} value={v} getData={getData} />)}
         </div>
       </div>
-    </AppLayout>
+    </Dashboarder>
   )
 }
 

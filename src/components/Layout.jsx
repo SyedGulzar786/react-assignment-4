@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LOGOTY from "../assets/logoty-removebg-preview.png"
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -16,7 +17,9 @@ const AppLayout = ({children}) => {
   return (
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
+        <div className="demo-logo-vertical text-center" >
+       <img width={"80px"} src={LOGOTY} alt="logo" />
+        </div>  
         <Menu
           theme="dark"
           mode="inline"
