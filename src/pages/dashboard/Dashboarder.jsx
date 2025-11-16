@@ -1,21 +1,17 @@
-import { AppLayout } from '../../components'
-
-const Dashboarder = ({children}) => {
-    var name = "ahsan"
-const updateName = () => {
-    name = "moiz"
-    var getName = document.getElementById("name")
-    getName.innerText = name;
-    console.log(name);
+import React from 'react';
+// import { AppLayout } from '../../components'
+    class Dashboarder extends React.Component {
+    constructor(){
+        super();
+    }
+    render(){
+        return(
+            <div>
+                <h1>hello old react</h1>
+            </div>
+        )
+    }
 }
-  return (
-        <AppLayout>
-            <h1 id='name'>{name}</h1>
-            <button onClick={updateName}>update name</button>
-            {children}
-        </AppLayout>
-  )
-};
 
 export default Dashboarder;
 
