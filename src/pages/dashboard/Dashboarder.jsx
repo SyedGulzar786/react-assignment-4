@@ -1,55 +1,18 @@
-import { Component } from 'react';
 
-class Dashboarder extends Component {
-    constructor() {
-        super();
+import { use, useState } from "react"
+const Dashboarder = () => {
 
-        this.state = {
-            data: {},
-            counter: 1
-        }
-        console.log("constructor called --> 1st")
-    }
-
-    componentDidMount() {
-        console.log("componentDidMount called --> 3rd")
-        this.getData()
-    }
-
-    static getDerivedStateFromProps(props, state) {
-        console.log(props, state, "update --> state")
-    }
-
-    shouldComponentUpdate() {
-        if (this.state.counter >= 5) {
-            return false
-        } else {
-            return true
-        }
-    }
-
-    getData() {
-        fetch('https://fakestoreapi.com/products/1')
-            .then(response => response.json())
-            .then(json => this.setState({ data: json }));
-    }
-
-    render() {
-        console.log("causing infinit loop-->", this.state)
-        console.log("render called --> 2nd")
-        return (
-            <div>
-                <h1>{this.state.data.title}</h1>
-                <h1>{this.state.counter}</h1>
-                <button onClick={() => this.setState({ counter: this.state.counter + 1 })}>increment</button>
-            </div>
-        )
-    }
-
+    const [message, setMessage] = useState("hello margarita")
+    const [counter, setCounter] = useState(0)
+    return (
+        <div>
+            <h1>{message}</h1>
+            <h2>counter </h2>
+            <p className="fs-3">{counter}</p>
+            <button onClick={() => setCounter(counter + 1)}>Increment Counter</button>
+            <button onClick={()=> setMessage("hey, how are you")}>Update Message</button>
+        </div>
+    )
 }
 
-
-
 export default Dashboarder;
-
-
