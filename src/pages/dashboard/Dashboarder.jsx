@@ -6,6 +6,7 @@ class Dashboarder extends Component {
         this.state = {
             name:"Gulzar"
         }
+        this.setName = this.setName.bind(this);
     }
     updateName = ()=>{
         console.log("updateName called",this.state)
@@ -20,7 +21,7 @@ class Dashboarder extends Component {
                 <h1>hello old react</h1>
                 <h3>{name}</h3>
                 <button onClick={this.updateName}>update</button>
-                <button onClick={this.setName.bind(this)}>Set</button>
+                <button onClick={this.setName}>Set</button>
             </div>
         )
     }
