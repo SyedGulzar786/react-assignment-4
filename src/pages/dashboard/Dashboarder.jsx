@@ -5,19 +5,11 @@ const Dashboarder = () => {
     const [counter, setCounter] = useState(0)
     const [todos, setTodos] = useState([]);
     const [item, setItem] = useState("");
-
     const addTodo = () => {
-        // console.log(item)
         setTodos([...todos, { value: item, disabled: true }])
         setItem("")
-        // console.log(todos)
     }
 
-    const editTodo = (target) => {
-        console.log(target)
-        // target.parentNode.innerText = item
-        // setTodos()
-    }
 
     return (
         <div>
@@ -31,17 +23,32 @@ const Dashboarder = () => {
                 <h1>Todo</h1>
                 <input value={item} onChange={(e) => { setItem(e.target.value) }} type="text" />
                 <button onClick={addTodo}>add Todo</button>
+                <button onClick={() => {
+                    setTodos([])
+                }}
+                >Delete All
+                </button>
+
                 <ul>
                     {
-                        todos.map(({value, disabled}, i) => (
+                        todos.map(({ value, disabled }, i) => (
                             <li key={i}>
-                            <input disabled={disabled} value={value} />
-                                <button onClick={() => { 
+                                <input disabled={disabled} defaultValue={value} />
+                                <button onClick={() => {
                                     const oldTodos = [...todos]
-                                    oldTodos.splice(i,1)
+                                    oldTodos.splice(i, 1)
                                     setTodos(oldTodos)
-                                 }} >Delete</button>
-                                {/* <button onClick={(e) => {editTodo(e.target)}}>Edit Todo</button> */}
+                                    console.log(todos, value)
+                                }} >Delete</button>
+
+                                <button onClick={(e) => {
+                                    const oldTodos = [...todos]
+                                    oldTodos[i].disabled = !oldTodos[i].disabled
+                                    oldTodos[i].value = oldTodos[i].value
+                                    setTodos(oldTodos)
+                                    disabled ? e.target.innerText = "Update" : e.target.innerText = "Edit"
+                                }}>Edit</button>
+
                             </li>
                         ))
                     }
